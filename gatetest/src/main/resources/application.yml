@@ -1,0 +1,15 @@
+server:
+  port: 8091
+
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: first
+          uri: http://localhost:8090/student
+          predicates:
+          - Path=/student/*
+          filters:
+          - StripPrefix=1
+
